@@ -30,7 +30,7 @@ export default function AboutPage() {
               </p>
               <div className="border-t border-[var(--border)] pt-8 mt-8 text-center">
                 <p className="text-2xl font-bold text-[var(--text-primary)] mb-2 font-display">Rejoignez le mouvement</p>
-                <p className="font-mono text-sm text-[var(--accent)]" dir="rtl">علم بلا حدود</p>
+
               </div>
             </div>
           </FadeInChild>

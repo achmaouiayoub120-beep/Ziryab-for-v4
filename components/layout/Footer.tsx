@@ -50,9 +50,7 @@ export default function Footer() {
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-4 max-w-sm">
               {t.description}
             </p>
-            <p className="text-[var(--accent)] text-xs mb-6 font-mono font-medium" dir="rtl">
-              علم بلا حدود — Un savoir sans frontières
-            </p>
+
             <div className="flex items-center gap-4 mb-6">
               {socialLinks.map((social) => (
                 <a

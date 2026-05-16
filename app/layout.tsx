@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ZiryabTec — علم بلا حدود | Plateforme E-Learning Premium",
+  title: "ZiryabTec | Plateforme E-Learning Premium",
   description:
     "La première plateforme d'apprentissage tech ultra-premium du Maroc. Cours vidéo, tuteur IA, certificats vérifiables. Apprenez. Progressez. Prouvez-le.",
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "ZiryabTec",
   ],
   openGraph: {
-    title: "ZiryabTec — Un savoir sans frontières",
+    title: "ZiryabTec",
     description:
       "Plateforme e-learning ultra-premium avec tuteur IA, parcours adaptatifs et certificats vérifiables.",
     type: "website",
