@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Twitter, Youtube, Mail, MapPin, Phone, Heart } from "lucide-react";
+import { Github, Linkedin, Twitter, Youtube, Mail, MapPin, Phone } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { dictionaries } from "@/lib/i18n/dictionaries";
 
@@ -142,9 +142,13 @@ export default function Footer() {
           <p className="text-sm font-medium text-[var(--text-muted)]">
             {t.rights}
           </p>
-          <p className="text-sm font-medium text-[var(--text-muted)] flex items-center gap-1">
-            {language === 'fr' ? 'Construit avec' : 'Built with'} <Heart size={14} className="text-red-500 fill-red-500" /> {language === 'fr' ? 'au Maroc' : 'in Morocco'}
-          </p>
+          <div className="flex items-center gap-2 text-sm font-normal text-slate-500">
+            <span>{language === 'fr' ? 'Fièrement conçu au Maroc' : 'Proudly engineered in Morocco'}</span>
+            <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg" className="rounded-[2px] opacity-80">
+              <rect width="16" height="11" fill="#C1272D"/>
+              <path d="M8 3.5L8.58779 5.30902H10.4894L8.95081 6.42197L9.53859 8.23098L8 7.11803L6.46141 8.23098L7.04919 6.42197L5.51057 5.30902H7.41221L8 3.5Z" fill="#006233"/>
+            </svg>
+          </div>
         </div>
       </div>
     </footer>
