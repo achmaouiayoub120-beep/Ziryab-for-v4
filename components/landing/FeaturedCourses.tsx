@@ -75,6 +75,7 @@ export default function FeaturedCourses() {
               <img
                 src={course.image}
                 alt={course[language].title}
+                loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

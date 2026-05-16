@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { PlayCircle, UserPlus, ArrowRight, Search, X, SlidersHorizontal } from "lucide-react";
+import { PlayCircle, UserPlus, ArrowRight, Search, X, SlidersHorizontal, SearchX } from "lucide-react";
 import SectionWrapper, { FadeInChild } from "@/components/ui/SectionWrapper";
 import Link from "next/link";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
@@ -409,7 +409,7 @@ function CoursesContent() {
                 />
 
                 <div className="relative h-44 w-full overflow-hidden">
-                  <img src={course.image} alt={course[language].title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <img src={course.image} alt={course[language].title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   {course.badge && (
                     <div className={`absolute top-3 left-3 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider text-white z-20 ${course.badge === 'new' ? 'bg-[var(--success)]' : course.badge === 'ai' ? 'bg-purple-600' : 'bg-[var(--gold)]'}`}>
@@ -468,8 +468,23 @@ function CoursesContent() {
               </motion.div>
             ))}
             {filteredCourses.length === 0 && (
-              <div className="col-span-full py-16 text-center">
-                <p className="text-[var(--text-muted)] text-lg font-medium">{t.filters.noResults}</p>
+              <div className="col-span-full py-20 flex flex-col items-center justify-center text-center">
+                <div className="w-20 h-20 rounded-2xl bg-[var(--bg-alt)] border border-[var(--border)] flex items-center justify-center mb-6">
+                  <SearchX size={36} className="text-[var(--text-muted)]" />
+                </div>
+                <h3 className="text-xl font-display font-bold text-[var(--text-primary)] mb-2">
+                  {language === 'fr' ? 'Oups ! Aucun résultat' : 'Oops! No results'}
+                </h3>
+                <p className="text-[var(--text-muted)] text-sm font-medium max-w-sm mb-8">
+                  {t.filters.noResults}
+                </p>
+                <button
+                  onClick={() => setFilters({ search: '', categories: [], levels: [], formats: [], durations: [] })}
+                  className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white px-6 py-3 rounded-xl font-bold text-sm transition-all transform hover:scale-[0.98] active:scale-95 shadow-md"
+                >
+                  <X size={16} />
+                  {language === 'fr' ? 'Réinitialiser les filtres' : 'Reset filters'}
+                </button>
               </div>
             )}
           </motion.div>
@@ -483,12 +498,61 @@ function CoursesContent() {
    EXPORTED COMPONENT (with Suspense boundary)
    ══════════════════════════════════════════════════════════ */
 
-export default function CoursesPreview() {
-  const { language } = useLanguage();
-  const t = dictionaries[language].courses;
-
+function SkeletonCard() {
   return (
-    <Suspense fallback={<div className="py-24 text-center">{t.filters.loading}</div>}>
+    <div className="elite-card flex flex-col h-full bg-white overflow-hidden animate-pulse" style={{ pointerEvents: 'none' }}>
+      <div className="h-44 w-full bg-gray-200" />
+      <div className="p-5 flex flex-col flex-1">
+        <div className="flex gap-2 mb-3">
+          <div className="h-5 w-20 bg-gray-200 rounded" />
+          <div className="h-5 w-16 bg-gray-100 rounded" />
+        </div>
+        <div className="h-5 w-full bg-gray-200 rounded mb-2" />
+        <div className="h-5 w-3/4 bg-gray-100 rounded mb-3" />
+        <div className="h-4 w-1/2 bg-gray-100 rounded mb-4" />
+        <div className="flex gap-3 mb-4">
+          <div className="h-4 w-12 bg-gray-100 rounded" />
+          <div className="h-4 w-16 bg-gray-100 rounded" />
+        </div>
+        <div className="mt-auto pt-3 border-t border-gray-100 flex justify-between">
+          <div className="h-6 w-20 bg-gray-200 rounded" />
+          <div className="h-5 w-14 bg-gray-100 rounded" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SkeletonGrid() {
+  return (
+    <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-24">
+      <div className="mb-10">
+        <div className="h-4 w-24 bg-gray-200 rounded mb-4 animate-pulse" />
+        <div className="h-10 w-72 bg-gray-200 rounded mb-4 animate-pulse" />
+        <div className="h-5 w-96 bg-gray-100 rounded mb-8 animate-pulse" />
+        <div className="h-12 w-full bg-gray-100 rounded-xl animate-pulse" />
+      </div>
+      <div className="flex gap-8">
+        <div className="hidden lg:block w-72 shrink-0">
+          <div className="elite-card bg-white p-6 space-y-4 animate-pulse">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="h-5 bg-gray-100 rounded" />
+            ))}
+          </div>
+        </div>
+        <div className="flex-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <SkeletonCard key={i} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function CoursesPreview() {
+  return (
+    <Suspense fallback={<SkeletonGrid />}>
       <CoursesContent />
     </Suspense>
   );

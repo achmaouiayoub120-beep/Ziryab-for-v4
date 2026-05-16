@@ -117,7 +117,7 @@ export default function HeroSection() {
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <Search size={16} className="text-white/50 opacity-0" /> {/* Just to keep layout, arrow down is better but we removed lucide ArrowDown, wait, I'll just use a CSS arrow or simple chevron */}
+          <Search size={16} className="text-white/50 opacity-0 absolute" aria-hidden="true" />
           <div className="w-4 h-4 border-r-2 border-b-2 border-white/50 rotate-45" />
         </motion.div>
       </motion.div>

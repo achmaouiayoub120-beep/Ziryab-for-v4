@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <img src="public/logo.png" alt="ZiryabTec" height="80" />
+  <h1>ZiryabTec</h1>
+  <p><strong>Plateforme E-Learning Premium — Formations IT certifiantes</strong></p>
 
-## Getting Started
+  ![Next.js](https://img.shields.io/badge/Next.js-16.2-black?logo=next.js)
+  ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+  ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?logo=tailwindcss)
+  ![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-FF0055?logo=framer)
+</div>
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## À propos
+
+**ZiryabTec** est une plateforme e-learning ultra-premium dédiée aux formations IT certifiantes en Intelligence Artificielle, Cloud Computing, Cybersécurité et développement logiciel. Conçue pour les talents marocains et francophones, elle offre une expérience d'apprentissage moderne avec tuteur IA contextuel, parcours adaptatifs et certificats vérifiables.
+
+## Architecture des données
+
+Le catalogue de formations suit une hiérarchie stricte à trois niveaux :
+
+```
+Thème (Theme)
+  └── Catégorie (Category)
+        └── Formation (Course)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Thème | Catégories |
+|-------|-----------|
+| **Technologie** | Développement Web, Frontend, Backend, DevOps & CI/CD, Cloud Computing |
+| **IA & Data** | Data Science, Machine Learning, Data Visualization |
+| **Cybersécurité** | Cybersécurité |
+| **Design** | UX Design |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Chaque formation possède des métadonnées de filtrage : `level`, `format`, `durationDays`, `featured`, liées à un `themeId` et un `categoryId`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Stack technique
 
-## Learn More
+| Couche | Technologie |
+|--------|------------|
+| Framework | Next.js 16.2 (App Router, Turbopack) |
+| Langage | TypeScript 5 |
+| Styling | Tailwind CSS 4, CSS custom properties |
+| Animations | Framer Motion 12, Swiper.js |
+| Icônes | Lucide React |
+| Typographie | Plus Jakarta Sans, DM Sans, JetBrains Mono (Google Fonts) |
+| Base de données | Prisma + SQLite (dev) |
+| Design System | "Elite Clarity" — Light mode corporate |
 
-To learn more about Next.js, take a look at the following resources:
+## Structure du projet
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+├── app/                    # Pages (App Router)
+│   ├── page.tsx            # Page d'accueil
+│   ├── courses/            # Catalogue avec filtres
+│   ├── portfolio/          # Portfolio + pages détail [slug]
+│   ├── about/              # À propos
+│   ├── not-found.tsx       # Page 404 personnalisée
+│   └── layout.tsx          # Layout racine + WhatsApp FAB
+├── components/
+│   ├── landing/            # Sections de la landing page
+│   ├── layout/             # Navbar, Footer
+│   ├── portfolio/          # Composants portfolio
+│   ├── courses/            # Composants détail cours
+│   └── ui/                 # Design system (SectionWrapper, Badge, WhatsAppFAB...)
+├── lib/
+│   ├── data/               # Types, données mock, portfolio
+│   └── i18n/               # Système bilingue FR/EN (dictionaries + context)
+└── public/                 # Assets statiques
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Installation et lancement
 
-## Deploy on Vercel
+```bash
+# Cloner le dépôt
+git clone https://github.com/achmaouiayoub120-beep/Ziryab-for-v4.git
+cd Ziryab-for-v4
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Installer les dépendances
+npm install
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Lancer le serveur de développement
+npm run dev
+
+# Build de production
+npm run build
+npm start
+```
+
+L'application sera accessible sur [http://localhost:3000](http://localhost:3000).
+
+## Fonctionnalités clés
+
+- **Sélecteur de langue bilingue** — Drapeaux SVG FR/EN côte à côte
+- **Catalogue avec filtres** — Sidebar à checkboxes (Catégorie, Niveau, Format, Durée)
+- **Portfolio professionnel** — Pages détail dynamiques avec SSG
+- **Section Témoignages** — Carrousel Swiper.js avec autoplay
+- **Page 404 personnalisée** — Design aligné sur la marque
+- **Skeleton loaders** — Chargement fluide type SaaS
+- **Accessibilité** — Navigation clavier, `focus-visible`, lazy loading
+
+---
+
+<div align="center">
+  <sub>Fièrement conçu au Maroc 🇲🇦 — © 2026 ZiryabTec</sub>
+</div>
