@@ -1,0 +1,39 @@
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import HeroSection from "@/components/landing/HeroSection";
+import StatsSection from "@/components/landing/StatsSection";
+import FeaturedCourses from "@/components/landing/FeaturedCourses";
+import BentoFeatures from "@/components/landing/BentoFeatures";
+import TestimonialsSection from "@/components/landing/TestimonialsSection";
+import PortfolioSection from "@/components/landing/PortfolioSection";
+import LogoMarquee from "@/components/landing/LogoMarquee";
+
+/* ── Sections masquées sur directive du professeur ──
+import CoursesPreview from "@/components/landing/CoursesPreview";
+import PricingPreview from "@/components/landing/PricingPreview";
+import CTASection from "@/components/landing/CTASection";
+── */
+
+export default function Home() {
+  return (
+    <>
+      <Navbar />
+      <main className="flex-1 bg-[var(--bg)]">
+        <HeroSection />
+        <LogoMarquee />
+        <StatsSection />
+        <FeaturedCourses />
+        <BentoFeatures />
+        <PortfolioSection />
+        <TestimonialsSection />
+        {/* ── Section Tarifs masquée (directive professeur) ──
+        <PricingPreview />
+        ── */}
+        {/* ── Section CTA masquée (directive professeur) ──
+        <CTASection />
+        ── */}
+      </main>
+      <Footer />
+    </>
+  );
+}

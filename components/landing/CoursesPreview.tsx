@@ -1,0 +1,495 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { PlayCircle, UserPlus, ArrowRight, Search, X, SlidersHorizontal } from "lucide-react";
+import SectionWrapper, { FadeInChild } from "@/components/ui/SectionWrapper";
+import Link from "next/link";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { Suspense, useState, useEffect, useCallback } from "react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { dictionaries, translatedCourses, categories } from "@/lib/i18n/dictionaries";
+import type { CourseFormat } from "@/lib/data/types";
+
+/* ══════════════════════════════════════════════════════════
+   FILTER TYPES
+   ══════════════════════════════════════════════════════════ */
+
+interface FilterState {
+  search: string;
+  categories: string[];
+  levels: string[];
+  formats: string[];
+  durations: string[];
+}
+
+const LEVEL_OPTIONS = ["beginner", "intermediate", "advanced", "all"] as const;
+const FORMAT_OPTIONS: CourseFormat[] = ["presentiel", "hybride", "en-ligne"];
+const DURATION_OPTIONS = ["1", "2-3", "4-5", "5+"] as const;
+
+function matchesDuration(durationDays: number, filter: string): boolean {
+  switch (filter) {
+    case "1": return durationDays === 1;
+    case "2-3": return durationDays >= 2 && durationDays <= 3;
+    case "4-5": return durationDays >= 4 && durationDays <= 5;
+    case "5+": return durationDays > 5;
+    default: return false;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   SIDEBAR FILTER PANEL
+   ══════════════════════════════════════════════════════════ */
+
+function FilterSidebar({
+  filters,
+  setFilters,
+  language,
+}: {
+  filters: FilterState;
+  setFilters: React.Dispatch<React.SetStateAction<FilterState>>;
+  language: "fr" | "en";
+}) {
+  const t = dictionaries[language].courses.filters;
+
+  const toggleFilter = (key: keyof Pick<FilterState, "categories" | "levels" | "formats" | "durations">, value: string) => {
+    setFilters((prev) => {
+      const arr = prev[key];
+      return {
+        ...prev,
+        [key]: arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value],
+      };
+    });
+  };
+
+  const clearAll = () => {
+    setFilters({ search: filters.search, categories: [], levels: [], formats: [], durations: [] });
+  };
+
+  const hasActiveFilters = filters.categories.length > 0 || filters.levels.length > 0 || filters.formats.length > 0 || filters.durations.length > 0;
+
+  // Get unique categories from the course data
+  const availableCategories = categories;
+
+  return (
+    <aside className="w-full lg:w-72 shrink-0">
+      <div className="elite-card bg-white p-6 sticky top-28">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center gap-2">
+            <SlidersHorizontal size={18} className="text-[var(--accent)]" />
+            <h3 className="text-lg font-display font-bold text-[var(--text-primary)]">{t.filtersTitle}</h3>
+          </div>
+          {hasActiveFilters && (
+            <button
+              onClick={clearAll}
+              className="text-xs font-bold text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
+            >
+              {t.clearAll}
+            </button>
+          )}
+        </div>
+
+        {/* ── CATÉGORIE ── */}
+        <div className="mb-6">
+          <h4 className="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] mb-3">
+            {t.category}
+          </h4>
+          <div className="space-y-2 max-h-48 overflow-y-auto">
+            {availableCategories.map((cat) => (
+              <label
+                key={cat.id}
+                className="flex items-center gap-2.5 cursor-pointer group"
+              >
+                <input
+                  type="checkbox"
+                  checked={filters.categories.includes(cat.id)}
+                  onChange={() => toggleFilter("categories", cat.id)}
+                  className="w-4 h-4 rounded border-2 border-[var(--border)] text-[var(--accent)] accent-[var(--accent)] cursor-pointer"
+                />
+                <span className="text-sm font-medium text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">
+                  {cat[language].name}
+                </span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <div className="h-px bg-[var(--border)] mb-6" />
+
+        {/* ── NIVEAU ── */}
+        <div className="mb-6">
+          <h4 className="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] mb-3">
+            {t.level}
+          </h4>
+          <div className="space-y-2">
+            {LEVEL_OPTIONS.map((level) => (
+              <label
+                key={level}
+                className="flex items-center gap-2.5 cursor-pointer group"
+              >
+                <input
+                  type="checkbox"
+                  checked={filters.levels.includes(level)}
+                  onChange={() => toggleFilter("levels", level)}
+                  className="w-4 h-4 rounded border-2 border-[var(--border)] text-[var(--accent)] accent-[var(--accent)] cursor-pointer"
+                />
+                <span className="text-sm font-medium text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">
+                  {t.levels[level]}
+                </span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <div className="h-px bg-[var(--border)] mb-6" />
+
+        {/* ── FORMAT ── */}
+        <div className="mb-6">
+          <h4 className="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] mb-3">
+            {t.format}
+          </h4>
+          <div className="space-y-2">
+            {FORMAT_OPTIONS.map((format) => (
+              <label
+                key={format}
+                className="flex items-center gap-2.5 cursor-pointer group"
+              >
+                <input
+                  type="checkbox"
+                  checked={filters.formats.includes(format)}
+                  onChange={() => toggleFilter("formats", format)}
+                  className="w-4 h-4 rounded border-2 border-[var(--border)] text-[var(--accent)] accent-[var(--accent)] cursor-pointer"
+                />
+                <span className="text-sm font-medium text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">
+                  {t.formats[format]}
+                </span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <div className="h-px bg-[var(--border)] mb-6" />
+
+        {/* ── DURÉE ── */}
+        <div>
+          <h4 className="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] mb-3">
+            {t.duration}
+          </h4>
+          <div className="space-y-2">
+            {DURATION_OPTIONS.map((dur) => (
+              <label
+                key={dur}
+                className="flex items-center gap-2.5 cursor-pointer group"
+              >
+                <input
+                  type="checkbox"
+                  checked={filters.durations.includes(dur)}
+                  onChange={() => toggleFilter("durations", dur)}
+                  className="w-4 h-4 rounded border-2 border-[var(--border)] text-[var(--accent)] accent-[var(--accent)] cursor-pointer"
+                />
+                <span className="text-sm font-medium text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">
+                  {t.durations[dur]}
+                </span>
+              </label>
+            ))}
+          </div>
+        </div>
+      </div>
+    </aside>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE FILTER DRAWER
+   ══════════════════════════════════════════════════════════ */
+
+function MobileFilterDrawer({
+  isOpen,
+  onClose,
+  filters,
+  setFilters,
+  language,
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+  filters: FilterState;
+  setFilters: React.Dispatch<React.SetStateAction<FilterState>>;
+  language: "fr" | "en";
+}) {
+  if (!isOpen) return null;
+  return (
+    <div className="fixed inset-0 z-50 lg:hidden">
+      <div className="absolute inset-0 bg-black/40" onClick={onClose} />
+      <motion.div
+        initial={{ x: "-100%" }}
+        animate={{ x: 0 }}
+        exit={{ x: "-100%" }}
+        transition={{ type: "spring", bounce: 0, duration: 0.3 }}
+        className="absolute left-0 top-0 bottom-0 w-[85%] max-w-sm bg-white overflow-y-auto"
+      >
+        <div className="flex items-center justify-between p-4 border-b border-[var(--border)]">
+          <h3 className="font-display font-bold text-lg">
+            {dictionaries[language].courses.filters.filtersTitle}
+          </h3>
+          <button onClick={onClose} className="p-2 text-[var(--text-muted)] hover:text-[var(--text-primary)]">
+            <X size={20} />
+          </button>
+        </div>
+        <div className="p-4">
+          <FilterSidebar filters={filters} setFilters={setFilters} language={language} />
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════
+   MAIN COURSES CONTENT
+   ══════════════════════════════════════════════════════════ */
+
+function CoursesContent() {
+  const shouldReduceMotion = useReducedMotion();
+  const { language } = useLanguage();
+  const t = dictionaries[language].courses;
+  const searchParams = useSearchParams();
+
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [filters, setFilters] = useState<FilterState>({
+    search: searchParams.get("search") || "",
+    categories: [],
+    levels: [],
+    formats: [],
+    durations: [],
+  });
+
+  // Sync search from URL on mount
+  useEffect(() => {
+    const urlSearch = searchParams.get("search") || "";
+    if (urlSearch !== filters.search) {
+      setFilters((prev) => ({ ...prev, search: urlSearch }));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
+
+  // Filter courses based on all active filters
+  const filteredCourses = translatedCourses.filter((course) => {
+    // Search
+    if (filters.search) {
+      const q = filters.search.toLowerCase();
+      const matchesTitle = course[language].title.toLowerCase().includes(q);
+      const matchesCat = course[language].category.toLowerCase().includes(q);
+      const matchesInstructor = course[language].instructor.toLowerCase().includes(q);
+      if (!matchesTitle && !matchesCat && !matchesInstructor) return false;
+    }
+
+    // Category
+    if (filters.categories.length > 0 && !filters.categories.includes(course.categoryId)) return false;
+
+    // Level
+    if (filters.levels.length > 0 && !filters.levels.includes(course.level)) return false;
+
+    // Format
+    if (filters.formats.length > 0 && !filters.formats.includes(course.format)) return false;
+
+    // Duration
+    if (filters.durations.length > 0) {
+      const matchesDur = filters.durations.some((d) => matchesDuration(course.durationDays, d));
+      if (!matchesDur) return false;
+    }
+
+    return true;
+  });
+
+  const activeFilterCount = filters.categories.length + filters.levels.length + filters.formats.length + filters.durations.length;
+
+  return (
+    <SectionWrapper id="courses" suppressHydrationWarning className="max-w-[1400px] mx-auto px-6 md:px-12 py-24">
+      {/* Header */}
+      <FadeInChild className="mb-10">
+        <span className="font-mono text-sm text-[var(--accent)] font-bold tracking-widest uppercase mb-4 block">{t.catalog}</span>
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-[var(--text-primary)] mb-4">
+          {t.title}
+        </h2>
+        <p className="text-lg text-[var(--text-secondary)] mb-8">
+          {t.description}
+        </p>
+
+        {/* Search bar (full width, no price filter) */}
+        <div className="flex gap-3 items-center">
+          <div className="relative flex-1">
+            <Search size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+            <input
+              type="text"
+              placeholder={t.filters.searchPlaceholder}
+              value={filters.search}
+              onChange={(e) => setFilters((prev) => ({ ...prev, search: e.target.value }))}
+              className="w-full pl-11 pr-10 py-3 bg-white border border-[var(--border)] rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--accent)] text-sm font-medium shadow-sm"
+            />
+            {filters.search && (
+              <button
+                onClick={() => setFilters((prev) => ({ ...prev, search: "" }))}
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              >
+                <X size={16} />
+              </button>
+            )}
+          </div>
+          {/* Mobile filter toggle button */}
+          <button
+            onClick={() => setMobileFiltersOpen(true)}
+            className="lg:hidden flex items-center gap-2 px-4 py-3 bg-white border border-[var(--border)] rounded-xl text-sm font-bold text-[var(--text-secondary)] hover:border-[var(--accent)] transition-colors shadow-sm"
+          >
+            <SlidersHorizontal size={16} />
+            {t.filters.filtersTitle}
+            {activeFilterCount > 0 && (
+              <span className="w-5 h-5 rounded-full bg-[var(--accent)] text-white text-[10px] font-bold flex items-center justify-center">
+                {activeFilterCount}
+              </span>
+            )}
+          </button>
+        </div>
+      </FadeInChild>
+
+      {/* ── Two-column layout: Sidebar + Grid ── */}
+      <div className="flex gap-8">
+        {/* Desktop Sidebar */}
+        <div className="hidden lg:block">
+          <FilterSidebar filters={filters} setFilters={setFilters} language={language} />
+        </div>
+
+        {/* Mobile Filter Drawer */}
+        <MobileFilterDrawer
+          isOpen={mobileFiltersOpen}
+          onClose={() => setMobileFiltersOpen(false)}
+          filters={filters}
+          setFilters={setFilters}
+          language={language}
+        />
+
+        {/* Course Grid */}
+        <div className="flex-1">
+          {/* Results count */}
+          <div className="mb-6 flex items-center justify-between">
+            <p className="text-sm font-medium text-[var(--text-muted)]">
+              {filteredCourses.length} {language === "fr" ? "formation(s) trouvée(s)" : "course(s) found"}
+            </p>
+            {activeFilterCount > 0 && (
+              <button
+                onClick={() => setFilters((prev) => ({ ...prev, categories: [], levels: [], formats: [], durations: [] }))}
+                className="text-xs font-bold text-[var(--accent)] hover:underline"
+              >
+                {t.filters.clearAll}
+              </button>
+            )}
+          </div>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
+            initial={shouldReduceMotion ? {} : "initial"}
+            whileInView={shouldReduceMotion ? {} : "animate"}
+            viewport={{ once: true }}
+            variants={{
+              animate: { transition: { staggerChildren: 0.06 } },
+            }}
+          >
+            {filteredCourses.map((course, i) => (
+              <motion.div
+                key={course.id + i}
+                variants={{
+                  initial: { opacity: 0, y: 20 },
+                  animate: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+                }}
+                className="elite-card group flex flex-col h-full bg-white overflow-hidden relative"
+              >
+                <Link
+                  suppressHydrationWarning
+                  href={`/courses/${course.id}`}
+                  className="absolute inset-0 z-10"
+                  aria-label={course[language].title}
+                />
+
+                <div className="relative h-44 w-full overflow-hidden">
+                  <img src={course.image} alt={course[language].title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  {course.badge && (
+                    <div className={`absolute top-3 left-3 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider text-white z-20 ${course.badge === 'new' ? 'bg-[var(--success)]' : course.badge === 'ai' ? 'bg-purple-600' : 'bg-[var(--gold)]'}`}>
+                      {course.badge === "bestseller" ? t.badges.bestseller : course.badge === "new" ? t.badges.new : t.badges.ai}
+                    </div>
+                  )}
+                  {/* Level badge */}
+                  <div className="absolute top-3 right-3 px-2 py-0.5 rounded bg-white/90 backdrop-blur-sm text-[9px] font-bold uppercase tracking-wider text-[var(--text-secondary)] z-20">
+                    {t.filters.levels[course.level as keyof typeof t.filters.levels]}
+                  </div>
+                </div>
+
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="inline-block px-2 py-0.5 rounded bg-[var(--accent-light)] text-[var(--accent)] font-medium text-[10px] uppercase tracking-wider">
+                      {course[language].category}
+                    </span>
+                    <span className="inline-block px-2 py-0.5 rounded bg-[var(--bg-alt)] text-[var(--text-muted)] font-medium text-[10px] uppercase tracking-wider border border-[var(--border)]">
+                      {t.filters.formats[course.format as keyof typeof t.filters.formats]}
+                    </span>
+                  </div>
+                  <h3 className="font-display font-bold text-lg leading-tight text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent)] transition-colors line-clamp-2">
+                    {course[language].title}
+                  </h3>
+                  <p className="text-xs text-[var(--text-secondary)] mb-3 flex items-center gap-1.5">
+                    <UserPlus size={12} /> {course[language].instructor}
+                  </p>
+
+                  <div className="flex items-center gap-3 text-xs font-medium text-[var(--text-muted)] mb-4">
+                    <span className="flex items-center gap-1"><span className="text-yellow-400">★</span> {course.rating}</span>
+                    <span>({course.students})</span>
+                    <span className="flex items-center gap-1"><PlayCircle size={12} /> {course.duration}</span>
+                  </div>
+
+                  <div className="mt-auto pt-3 border-t border-[var(--border)] flex items-center justify-between">
+                    {course.progress != null ? (
+                      <div className="w-full">
+                        <div className="flex items-center justify-between text-xs mb-1">
+                          <span className="text-[var(--text-muted)] font-medium">{t.progress}</span>
+                          <span className="text-[var(--success)] font-bold">{course.progress}%</span>
+                        </div>
+                        <div className="w-full h-1.5 rounded-full bg-[var(--bg-alt)] overflow-hidden">
+                          <div className="h-full bg-[var(--success)] rounded-full" style={{ width: `${course.progress}%` }} />
+                        </div>
+                      </div>
+                    ) : (
+                      <>
+                        <span className="font-mono font-bold text-lg text-[var(--text-primary)]">{course.price} MAD</span>
+                        <span className="text-sm font-bold text-[var(--accent)] flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                          {t.view} <ArrowRight size={14} />
+                        </span>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+            {filteredCourses.length === 0 && (
+              <div className="col-span-full py-16 text-center">
+                <p className="text-[var(--text-muted)] text-lg font-medium">{t.filters.noResults}</p>
+              </div>
+            )}
+          </motion.div>
+        </div>
+      </div>
+    </SectionWrapper>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════
+   EXPORTED COMPONENT (with Suspense boundary)
+   ══════════════════════════════════════════════════════════ */
+
+export default function CoursesPreview() {
+  const { language } = useLanguage();
+  const t = dictionaries[language].courses;
+
+  return (
+    <Suspense fallback={<div className="py-24 text-center">{t.filters.loading}</div>}>
+      <CoursesContent />
+    </Suspense>
+  );
+}
