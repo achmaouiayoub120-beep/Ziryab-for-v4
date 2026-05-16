@@ -9,6 +9,9 @@ import { Suspense, useState, useEffect, useCallback } from "react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { dictionaries, translatedCourses, categories } from "@/lib/i18n/dictionaries";
 import type { CourseFormat } from "@/lib/data/types";
+import dynamic from "next/dynamic";
+
+const DownloadCatalogButton = dynamic(() => import("@/components/pdf/DownloadCatalogButton"), { ssr: false });
 
 /* ══════════════════════════════════════════════════════════
    FILTER TYPES
@@ -72,7 +75,7 @@ function FilterSidebar({
 
   return (
     <aside className="w-full lg:w-72 shrink-0">
-      <div className="elite-card bg-white p-6 sticky top-28">
+      <div className="bg-white border border-slate-100 rounded-2xl shadow-xl shadow-slate-200/50 p-6 sticky top-28 transition-all duration-300">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2">
@@ -303,16 +306,25 @@ function CoursesContent() {
   const activeFilterCount = filters.categories.length + filters.levels.length + filters.formats.length + filters.durations.length;
 
   return (
-    <SectionWrapper id="courses" suppressHydrationWarning className="max-w-[1400px] mx-auto px-6 md:px-12 py-24">
+    <div className="bg-slate-50/50 border-y border-slate-100">
+      <SectionWrapper id="courses" suppressHydrationWarning className="max-w-[1400px] mx-auto px-6 md:px-12 py-24">
       {/* Header */}
       <FadeInChild className="mb-10">
         <span className="font-mono text-sm text-[var(--accent)] font-bold tracking-widest uppercase mb-4 block">{t.catalog}</span>
-        <h2 className="text-4xl md:text-5xl font-display font-bold text-[var(--text-primary)] mb-4">
-          {t.title}
-        </h2>
-        <p className="text-lg text-[var(--text-secondary)] mb-8">
-          {t.description}
-        </p>
+        
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-[var(--text-primary)] mb-4">
+              {t.title}
+            </h2>
+            <p className="text-lg text-[var(--text-secondary)] max-w-2xl">
+              {t.description}
+            </p>
+          </div>
+          <div className="shrink-0">
+            <DownloadCatalogButton courses={translatedCourses} language={language} />
+          </div>
+        </div>
 
         {/* Search bar (full width, no price filter) */}
         <div className="flex gap-3 items-center">
@@ -399,7 +411,7 @@ function CoursesContent() {
                   initial: { opacity: 0, y: 20 },
                   animate: { opacity: 1, y: 0, transition: { duration: 0.4 } },
                 }}
-                className="elite-card group flex flex-col h-full bg-white overflow-hidden relative"
+                className="group flex flex-col h-full bg-white border border-slate-100 rounded-2xl overflow-hidden relative shadow-xl shadow-slate-200/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[var(--accent)]/20 transition-all duration-300"
               >
                 <Link
                   suppressHydrationWarning
@@ -490,7 +502,8 @@ function CoursesContent() {
           </motion.div>
         </div>
       </div>
-    </SectionWrapper>
+      </SectionWrapper>
+    </div>
   );
 }
 
@@ -500,7 +513,7 @@ function CoursesContent() {
 
 function SkeletonCard() {
   return (
-    <div className="elite-card flex flex-col h-full bg-white overflow-hidden animate-pulse" style={{ pointerEvents: 'none' }}>
+    <div className="flex flex-col h-full bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-xl shadow-slate-200/50 animate-pulse" style={{ pointerEvents: 'none' }}>
       <div className="h-44 w-full bg-gray-200" />
       <div className="p-5 flex flex-col flex-1">
         <div className="flex gap-2 mb-3">
@@ -534,7 +547,7 @@ function SkeletonGrid() {
       </div>
       <div className="flex gap-8">
         <div className="hidden lg:block w-72 shrink-0">
-          <div className="elite-card bg-white p-6 space-y-4 animate-pulse">
+          <div className="bg-white border border-slate-100 rounded-2xl shadow-xl shadow-slate-200/50 p-6 space-y-4 animate-pulse">
             {Array.from({ length: 8 }).map((_, i) => (
               <div key={i} className="h-5 bg-gray-100 rounded" />
             ))}
