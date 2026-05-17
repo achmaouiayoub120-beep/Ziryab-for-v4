@@ -18,23 +18,23 @@ export default function Footer() {
   const footerLinks = {
     plateforme: [
       { label: t.links.platform.items[0], href: "/courses" },
-      { label: t.links.platform.items[1], href: "#" },
-      { label: t.links.platform.items[2], href: "#" },
-      { label: t.links.platform.items[3], href: "#" },
-      { label: language === 'fr' ? "Entreprises" : "Business", href: "#" },
+      { label: t.links.platform.items[1], href: "/portfolio" },
+      { label: t.links.platform.items[2], href: "/formations" },
+      { label: t.links.platform.items[3], href: "/courses" },
+      { label: language === 'fr' ? "Entreprises" : "Business", href: "/about" },
     ],
     ressources: [
-      { label: t.links.company.items[2], href: "#" },
-      { label: language === 'fr' ? "Documentation" : "Documentation", href: "#" },
+      { label: t.links.company.items[2], href: "/blog" },
+      { label: language === 'fr' ? "Documentation" : "Documentation", href: "/blog" },
       { label: "FAQ", href: "/faqs" },
-      { label: language === 'fr' ? "Communauté" : "Community", href: "#" },
-      { label: language === 'fr' ? "Vérifier un certificat" : "Verify a certificate", href: "#" },
+      { label: language === 'fr' ? "Communauté" : "Community", href: "/blog" },
+      { label: language === 'fr' ? "Vérifier un certificat" : "Verify a certificate", href: "/formations" },
     ],
     legal: [
-      { label: t.links.legal.items[2], href: "#" },
-      { label: t.links.legal.items[0], href: "#" },
-      { label: t.links.legal.items[1], href: "#" },
-      { label: "Cookies", href: "#" },
+      { label: t.links.legal.items[2], href: "/mentions-legales" },
+      { label: t.links.legal.items[0], href: "/cgv" },
+      { label: t.links.legal.items[1], href: "/confidentialite" },
+      { label: "Cookies", href: "/cookies" },
     ],
   };
 

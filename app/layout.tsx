@@ -19,23 +19,23 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ZiryabTec | Plateforme E-Learning Premium",
+  title: "ZiryabTec | Solutions IT & Formations",
   description:
-    "La première plateforme d'apprentissage tech ultra-premium du Maroc. Cours vidéo, tuteur IA, certificats vérifiables. Apprenez. Progressez. Prouvez-le.",
+    "ZiryabTec propose des solutions IT innovantes et des formations de pointe. Découvrez notre expertise en ERP, Retailink, Cybersécurité, Cloud et plus.",
   keywords: [
-    "e-learning",
-    "formation",
-    "maroc",
-    "cours en ligne",
+    "ERP",
+    "Retailink",
+    "Cybersécurité",
+    "Formation",
+    "solutions IT",
+    "cloud",
     "développement",
-    "IA",
-    "certificat",
     "ZiryabTec",
   ],
   openGraph: {
-    title: "ZiryabTec",
+    title: "ZiryabTec | Solutions IT & Formations",
     description:
-      "Plateforme e-learning ultra-premium avec tuteur IA, parcours adaptatifs et certificats vérifiables.",
+      "ZiryabTec propose des solutions IT innovantes et des formations de pointe. Découvrez notre expertise en ERP, Retailink, Cybersécurité et plus.",
     type: "website",
     locale: "fr_FR",
     siteName: "ZiryabTec",

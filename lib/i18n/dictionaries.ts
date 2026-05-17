@@ -5,45 +5,146 @@ import type { TranslatedCourse, Theme, Category } from "@/lib/data/types";
    ══════════════════════════════════════════════════════════ */
 export const themes: Theme[] = [
   {
-    id: "tech",
-    fr: { name: "Technologie", description: "Développement, infrastructure et outils tech" },
-    en: { name: "Technology", description: "Development, infrastructure and tech tools" },
+    "id": "Cybersécurité",
+    "fr": {
+      "name": "Cybersécurité",
+      "description": "Formations en Cybersécurité"
+    },
+    "en": {
+      "name": "Cybersécurité",
+      "description": "Cybersécurité training courses"
+    }
   },
   {
-    id: "data-ai",
-    fr: { name: "IA & Data", description: "Intelligence artificielle, data science et analytics" },
-    en: { name: "AI & Data", description: "Artificial intelligence, data science and analytics" },
+    "id": "Cloud",
+    "fr": {
+      "name": "Cloud",
+      "description": "Formations en Cloud"
+    },
+    "en": {
+      "name": "Cloud",
+      "description": "Cloud training courses"
+    }
   },
   {
-    id: "security",
-    fr: { name: "Cybersécurité", description: "Sécurité informatique et protection des données" },
-    en: { name: "Cybersecurity", description: "IT security and data protection" },
+    "id": "Système",
+    "fr": {
+      "name": "Système",
+      "description": "Formations en Système"
+    },
+    "en": {
+      "name": "Système",
+      "description": "Système training courses"
+    }
   },
   {
-    id: "design",
-    fr: { name: "Design", description: "UX/UI design, stratégie et prototypage" },
-    en: { name: "Design", description: "UX/UI design, strategy and prototyping" },
+    "id": "Réseaux",
+    "fr": {
+      "name": "Réseaux",
+      "description": "Formations en Réseaux"
+    },
+    "en": {
+      "name": "Réseaux",
+      "description": "Réseaux training courses"
+    }
   },
+  {
+    "id": "IA",
+    "fr": {
+      "name": "IA",
+      "description": "Formations en IA"
+    },
+    "en": {
+      "name": "IA",
+      "description": "IA training courses"
+    }
+  }
 ];
 
 /* ══════════════════════════════════════════════════════════
    CATEGORIES — Belong to a Theme
    ══════════════════════════════════════════════════════════ */
 export const categories: Category[] = [
-  // Tech
-  { id: "dev-web", themeId: "tech", fr: { name: "Développement Web" }, en: { name: "Web Development" } },
-  { id: "frontend", themeId: "tech", fr: { name: "Frontend" }, en: { name: "Frontend" } },
-  { id: "backend", themeId: "tech", fr: { name: "Backend" }, en: { name: "Backend" } },
-  { id: "devops", themeId: "tech", fr: { name: "DevOps & CI/CD" }, en: { name: "DevOps & CI/CD" } },
-  { id: "cloud", themeId: "tech", fr: { name: "Cloud Computing" }, en: { name: "Cloud Computing" } },
-  // Data & AI
-  { id: "data-science", themeId: "data-ai", fr: { name: "Data Science" }, en: { name: "Data Science" } },
-  { id: "ml", themeId: "data-ai", fr: { name: "Machine Learning" }, en: { name: "Machine Learning" } },
-  { id: "data-viz", themeId: "data-ai", fr: { name: "Data Visualization" }, en: { name: "Data Visualization" } },
-  // Security
-  { id: "cybersec", themeId: "security", fr: { name: "Cybersécurité" }, en: { name: "Cybersecurity" } },
-  // Design
-  { id: "ux-design", themeId: "design", fr: { name: "UX Design" }, en: { name: "UX Design" } },
+  {
+    "id": "Sécurité offensive",
+    "themeId": "Cybersécurité",
+    "fr": {
+      "name": "Sécurité offensive"
+    },
+    "en": {
+      "name": "Sécurité offensive"
+    }
+  },
+  {
+    "id": "Cloud Computing",
+    "themeId": "Cloud",
+    "fr": {
+      "name": "Cloud Computing"
+    },
+    "en": {
+      "name": "Cloud Computing"
+    }
+  },
+  {
+    "id": "Développement Unix Linux",
+    "themeId": "Système",
+    "fr": {
+      "name": "Développement Unix Linux"
+    },
+    "en": {
+      "name": "Développement Unix Linux"
+    }
+  },
+  {
+    "id": "Virtualisation",
+    "themeId": "Système",
+    "fr": {
+      "name": "Virtualisation"
+    },
+    "en": {
+      "name": "Virtualisation"
+    }
+  },
+  {
+    "id": "Windows et System Center",
+    "themeId": "Système",
+    "fr": {
+      "name": "Windows et System Center"
+    },
+    "en": {
+      "name": "Windows et System Center"
+    }
+  },
+  {
+    "id": "MacOs",
+    "themeId": "Système",
+    "fr": {
+      "name": "MacOs"
+    },
+    "en": {
+      "name": "MacOs"
+    }
+  },
+  {
+    "id": "Formation Mise en Oeuvre",
+    "themeId": "Réseaux",
+    "fr": {
+      "name": "Formation Mise en Oeuvre"
+    },
+    "en": {
+      "name": "Formation Mise en Oeuvre"
+    }
+  },
+  {
+    "id": "Intelligence Artificielle",
+    "themeId": "IA",
+    "fr": {
+      "name": "Intelligence Artificielle"
+    },
+    "en": {
+      "name": "Intelligence Artificielle"
+    }
+  }
 ];
 
 /* ══════════════════════════════════════════════════════════
@@ -434,247 +535,1898 @@ export const dictionaries = {
    ══════════════════════════════════════════════════════════ */
 export const translatedCourses: TranslatedCourse[] = [
   {
-    id: "python-avance",
-    themeId: "data-ai",
-    categoryId: "data-science",
-    rating: 4.8,
-    students: 1240,
-    duration: "18h 30min",
-    durationDays: 3,
-    price: 299,
-    badge: "bestseller",
-    level: "intermediate",
-    format: "en-ligne",
-    featured: true,
-    color: "from-blue-600/20 to-cyan-600/20",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop",
-    fr: {
-      title: "Python Avancé & Data Science",
-      category: "Data Science",
-      theme: "IA & Data",
-      instructor: "Pr. Ahmed Benali",
+    "id": "CP-TH",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.7,
+    "students": 569,
+    "duration": "2J",
+    "durationDays": 2,
+    "price": 2800,
+    "featured": true,
+    "badge": "new",
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "beginner",
+    "format": "en-ligne",
+    "fr": {
+      "title": "Cours préparatoire aux techniques de hacking",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
     },
-    en: {
-      title: "Advanced Python & Data Science",
-      category: "Data Science",
-      theme: "AI & Data",
-      instructor: "Prof. Ahmed Benali",
+    "en": {
+      "title": "Cours préparatoire aux techniques de hacking",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
     }
   },
   {
-    id: "react-nextjs",
-    themeId: "tech",
-    categoryId: "frontend",
-    rating: 4.9,
-    students: 890,
-    duration: "24h 15min",
-    durationDays: 4,
-    price: 399,
-    badge: "new",
-    level: "advanced",
-    format: "en-ligne",
-    featured: true,
-    color: "from-cyan-600/20 to-emerald-600/20",
-    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=600&auto=format&fit=crop",
-    fr: {
-      title: "React & Next.js — De Zéro au Déploiement",
-      category: "Frontend",
-      theme: "Technologie",
-      instructor: "Sara El Mansouri",
+    "id": "TH-N1",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.9,
+    "students": 688,
+    "duration": "5J",
+    "durationDays": 5,
+    "price": 4800,
+    "featured": true,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "beginner",
+    "format": "presentiel",
+    "fr": {
+      "title": "Techniques de hacking - Niveau 1",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
     },
-    en: {
-      title: "React & Next.js — Zero to Deployment",
-      category: "Frontend",
-      theme: "Technology",
-      instructor: "Sara El Mansouri",
+    "en": {
+      "title": "Techniques de hacking - Niveau 1",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
     }
   },
   {
-    id: "ai-practical",
-    themeId: "data-ai",
-    categoryId: "ml",
-    rating: 4.7,
-    students: 2100,
-    duration: "32h",
-    durationDays: 5,
-    price: 499,
-    badge: "ai",
-    level: "intermediate",
-    format: "hybride",
-    featured: true,
-    color: "from-purple-600/20 to-blue-600/20",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=600&auto=format&fit=crop",
-    fr: {
-      title: "Intelligence Artificielle Pratique",
-      category: "Machine Learning",
-      theme: "IA & Data",
-      instructor: "Dr. Karim Fassi",
+    "id": "TH-N2",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.9,
+    "students": 688,
+    "duration": "5J",
+    "durationDays": 5,
+    "price": 5900,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "advanced",
+    "format": "presentiel",
+    "fr": {
+      "title": "Techniques de hacking - Niveau 2",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
     },
-    en: {
-      title: "Practical Artificial Intelligence",
-      category: "Machine Learning",
-      theme: "AI & Data",
-      instructor: "Dr. Karim Fassi",
+    "en": {
+      "title": "Techniques de hacking - Niveau 2",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
     }
   },
   {
-    id: "devops-aws",
-    themeId: "tech",
-    categoryId: "devops",
-    rating: 4.6,
-    students: 650,
-    duration: "20h",
-    durationDays: 3,
-    price: 349,
-    progress: 42,
-    level: "intermediate",
-    format: "en-ligne",
-    color: "from-emerald-600/20 to-yellow-600/20",
-    image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?q=80&w=600&auto=format&fit=crop",
-    fr: {
-      title: "DevOps & Cloud — AWS + Docker",
-      category: "DevOps & CI/CD",
-      theme: "Technologie",
-      instructor: "Youssef Amrani",
+    "id": "PYT-TI",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.5,
+    "students": 660,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3990,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f2?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Python pour tests d'intrusion",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
     },
-    en: {
-      title: "DevOps & Cloud — AWS + Docker",
-      category: "DevOps & CI/CD",
-      theme: "Technology",
-      instructor: "Youssef Amrani",
+    "en": {
+      "title": "Python pour tests d'intrusion",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
     }
   },
   {
-    id: "cybersecurity-hacking",
-    themeId: "security",
-    categoryId: "cybersec",
-    rating: 4.8,
-    students: 940,
-    duration: "28h",
-    durationDays: 5,
-    price: 449,
-    badge: "new",
-    level: "advanced",
-    format: "presentiel",
-    color: "from-red-600/20 to-rose-600/20",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop",
-    fr: {
-      title: "Cybersécurité : Hacking Éthique",
-      category: "Cybersécurité",
-      theme: "Cybersécurité",
-      instructor: "Amine Chraibi",
+    "id": "OSINT-N1",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.9,
+    "students": 653,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3800,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "beginner",
+    "format": "presentiel",
+    "fr": {
+      "title": "OSINT - Investigation en source ouverte - Niveau 1",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
     },
-    en: {
-      title: "Cybersecurity: Ethical Hacking",
-      category: "Cybersecurity",
-      theme: "Cybersecurity",
-      instructor: "Amine Chraibi",
+    "en": {
+      "title": "OSINT - Investigation en source ouverte - Niveau 1",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
     }
   },
   {
-    id: "microservices",
-    themeId: "tech",
-    categoryId: "backend",
-    rating: 4.5,
-    students: 410,
-    duration: "26h 30min",
-    durationDays: 4,
-    price: 399,
-    level: "advanced",
-    format: "en-ligne",
-    color: "from-green-600/20 to-teal-600/20",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop",
-    fr: {
-      title: "Architecture Microservices",
-      category: "Backend",
-      theme: "Technologie",
-      instructor: "Pr. Hassan El Fassi",
+    "id": "OSINT-N2",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.9,
+    "students": 653,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3990,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "advanced",
+    "format": "hybride",
+    "fr": {
+      "title": "OSINT - Investigation en source ouverte - Niveau 2",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
     },
-    en: {
-      title: "Microservices Architecture",
-      category: "Backend",
-      theme: "Technology",
-      instructor: "Prof. Hassan El Fassi",
+    "en": {
+      "title": "OSINT - Investigation en source ouverte - Niveau 2",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
     }
   },
   {
-    id: "ml-masterclass",
-    themeId: "data-ai",
-    categoryId: "ml",
-    rating: 4.9,
-    students: 210,
-    duration: "35h",
-    durationDays: 6,
-    price: 549,
-    badge: "ai",
-    level: "advanced",
-    format: "hybride",
-    color: "from-purple-600/20 to-indigo-600/20",
-    image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=600&auto=format&fit=crop",
-    fr: {
-      title: "Machine Learning Masterclass",
-      category: "Machine Learning",
-      theme: "IA & Data",
-      instructor: "Dr. Karim Fassi",
+    "id": "ATT-WIFI",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.5,
+    "students": 555,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 4500,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Attaque défense Wi-Fi",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
     },
-    en: {
-      title: "Machine Learning Masterclass",
-      category: "Machine Learning",
-      theme: "AI & Data",
-      instructor: "Dr. Karim Fassi",
+    "en": {
+      "title": "Attaque défense Wi-Fi",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
     }
   },
   {
-    id: "powerbi",
-    themeId: "data-ai",
-    categoryId: "data-viz",
-    rating: 4.7,
-    students: 520,
-    duration: "12h",
-    durationDays: 2,
-    price: 199,
-    level: "beginner",
-    format: "en-ligne",
-    color: "from-yellow-400/20 to-orange-400/20",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop",
-    fr: {
-      title: "Data Visualization avec PowerBI",
-      category: "Data Visualization",
-      theme: "IA & Data",
-      instructor: "Nisrine Mansour",
+    "id": "DEF-WEB",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 576,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3800,
+    "badge": "new",
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "en-ligne",
+    "fr": {
+      "title": "Techniques défensives et offensives des applications Web",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
     },
-    en: {
-      title: "Data Visualization with PowerBI",
-      category: "Data Visualization",
-      theme: "AI & Data",
-      instructor: "Nisrine Mansour",
+    "en": {
+      "title": "Techniques défensives et offensives des applications Web",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
     }
   },
   {
-    id: "ux-strategy",
-    themeId: "design",
-    categoryId: "ux-design",
-    rating: 4.9,
-    students: 310,
-    duration: "15h",
-    durationDays: 2,
-    price: 299,
-    badge: "new",
-    level: "beginner",
-    format: "presentiel",
-    color: "from-pink-400/20 to-purple-400/20",
-    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=600&auto=format&fit=crop",
-    fr: {
-      title: "UX Design Strategy",
-      category: "Design",
-      theme: "Design",
-      instructor: "Lina Berrada",
+    "id": "CTI-N1",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.7,
+    "students": 569,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 4500,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "beginner",
+    "format": "presentiel",
+    "fr": {
+      "title": "Cyber Threat Intelligence - Niveau 1",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
     },
-    en: {
-      title: "UX Design Strategy",
-      category: "Design",
-      theme: "Design",
-      instructor: "Lina Berrada",
+    "en": {
+      "title": "Cyber Threat Intelligence - Niveau 1",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "CTI-N2",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.7,
+    "students": 569,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3500,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "advanced",
+    "format": "presentiel",
+    "fr": {
+      "title": "Cyber Threat Intelligence - Niveau 2",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Cyber Threat Intelligence - Niveau 2",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "INV-CF",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 611,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3800,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "hybride",
+    "fr": {
+      "title": "Investigation numérique (Computer Forensics)",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Investigation numérique (Computer Forensics)",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "INV-NET",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 611,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 4200,
+    "badge": "bestseller",
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f2?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Investigation numérique des réseaux",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Investigation numérique des réseaux",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "INV-WIN",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 611,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3990,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Investigation numérique Windows (Computer Forensics)",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Investigation numérique Windows (Computer Forensics)",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "INV-LNX",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 611,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3800,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Investigation numérique Linux (Computer Forensics)",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Investigation numérique Linux (Computer Forensics)",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "MAL-F",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.7,
+    "students": 639,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 4200,
+    "badge": "new",
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "beginner",
+    "format": "en-ligne",
+    "fr": {
+      "title": "Analyse de Malwares - Les fondamentaux",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Analyse de Malwares - Les fondamentaux",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "MAL-ADV",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.7,
+    "students": 639,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3500,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "advanced",
+    "format": "hybride",
+    "fr": {
+      "title": "Analyse de Malwares - Niveau avancé",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Analyse de Malwares - Niveau avancé",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "SEC-SRV",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 681,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3990,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Sécurité des systèmes et services réseaux",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Sécurité des systèmes et services réseaux",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "SEC-WIN",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 681,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3500,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Sécurité du poste client Windows",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Sécurité du poste client Windows",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "SEC-AD",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 681,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3500,
+    "featured": true,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Sécurité de l'Active Directory",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Sécurité de l'Active Directory",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "DUR-LNX",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 576,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3500,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f2?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Durcissement sécurité Linux",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Durcissement sécurité Linux",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "DSECOPS",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 576,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3800,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "hybride",
+    "fr": {
+      "title": "DevSecOps Foundation",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "DevSecOps Foundation",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "SEC-PHP",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 681,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 4500,
+    "badge": "new",
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "en-ligne",
+    "fr": {
+      "title": "Sécurité applicative avec PHP",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Sécurité applicative avec PHP",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "SEC-API",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 681,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3500,
+    "badge": "bestseller",
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "REST API - Bonnes pratiques et sécurité",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "REST API - Bonnes pratiques et sécurité",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "SEC-JVA",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 681,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3800,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Sécurité applicative Java",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Sécurité applicative Java",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "SEC-NET",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 681,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3990,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "C# - Sécurité applicative avec .NET",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "C# - Sécurité applicative avec .NET",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "SEC-DES",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 681,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3800,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "hybride",
+    "fr": {
+      "title": "Sécurité applicative - Intégrer la sécurité dès la conception (Secure by Design)",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Sécurité applicative - Intégrer la sécurité dès la conception (Secure by Design)",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "SEC-JS",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 681,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 4500,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "La sécurité du développement Web avec JavaScript",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "La sécurité du développement Web avec JavaScript",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "SOC-PCR",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 681,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 4200,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f2?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Parcours Analyste SOC (Security Operation Center)",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Parcours Analyste SOC (Security Operation Center)",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "SOC-ANA",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 681,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3500,
+    "badge": "new",
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "en-ligne",
+    "fr": {
+      "title": "Analyse SOC (Security Operation Center)",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Analyse SOC (Security Operation Center)",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "SEC-SRV2",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 681,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3990,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Sécurité des systèmes et services réseaux",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Sécurité des systèmes et services réseaux",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "IPS-IDS",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 611,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3990,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "hybride",
+    "fr": {
+      "title": "Systèmes de prévention (IPS) et détection (IDS) d'intrusion",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Systèmes de prévention (IPS) et détection (IDS) d'intrusion",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "IAM-SEC",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 611,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3800,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Gestion des identités et sécurité des accès",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Gestion des identités et sécurité des accès",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "FW-ARCH",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.5,
+    "students": 590,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 4200,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Firewall - Architecture et déploiement",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Firewall - Architecture et déploiement",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "VPN-MO",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.6,
+    "students": 702,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3990,
+    "badge": "bestseller",
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "VPN - Mise en oeuvre",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "VPN - Mise en oeuvre",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "PKI-MO",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.5,
+    "students": 660,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3800,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "PKI - Mise en oeuvre",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "PKI - Mise en oeuvre",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "SCADA",
+    "themeId": "Cybersécurité",
+    "categoryId": "Sécurité offensive",
+    "rating": 4.8,
+    "students": 681,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 4200,
+    "badge": "new",
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f2?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "en-ligne",
+    "fr": {
+      "title": "Cybersécurité des systèmes industriels (SCADA)",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Cybersécurité des systèmes industriels (SCADA)",
+      "category": "Sécurité offensive",
+      "theme": "Cybersécurité",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "CLD-ARCH",
+    "themeId": "Cloud",
+    "categoryId": "Cloud Computing",
+    "rating": 4.7,
+    "students": 569,
+    "duration": "2J",
+    "durationDays": 2,
+    "price": 3500,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Architectures Cloud d'entreprise",
+      "category": "Cloud Computing",
+      "theme": "Cloud",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Architectures Cloud d'entreprise",
+      "category": "Cloud Computing",
+      "theme": "Cloud",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "CLD-SYN",
+    "themeId": "Cloud",
+    "categoryId": "Cloud Computing",
+    "rating": 4.7,
+    "students": 569,
+    "duration": "5J",
+    "durationDays": 5,
+    "price": 5200,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Cloud - La synthèse",
+      "category": "Cloud Computing",
+      "theme": "Cloud",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Cloud - La synthèse",
+      "category": "Cloud Computing",
+      "theme": "Cloud",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "CLD-SEC",
+    "themeId": "Cloud",
+    "categoryId": "Cloud Computing",
+    "rating": 4.7,
+    "students": 569,
+    "duration": "5J",
+    "durationDays": 5,
+    "price": 4990,
+    "featured": true,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Sécurité du Cloud Computing",
+      "category": "Cloud Computing",
+      "theme": "Cloud",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Sécurité du Cloud Computing",
+      "category": "Cloud Computing",
+      "theme": "Cloud",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "O365-ADM",
+    "themeId": "Cloud",
+    "categoryId": "Cloud Computing",
+    "rating": 4.9,
+    "students": 653,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3500,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Activer et administrer Office 365",
+      "category": "Cloud Computing",
+      "theme": "Cloud",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Activer et administrer Office 365",
+      "category": "Cloud Computing",
+      "theme": "Cloud",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "O365-GST",
+    "themeId": "Cloud",
+    "categoryId": "Cloud Computing",
+    "rating": 4.9,
+    "students": 653,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3990,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "hybride",
+    "fr": {
+      "title": "Office 365 - Gestionnaire",
+      "category": "Cloud Computing",
+      "theme": "Cloud",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Office 365 - Gestionnaire",
+      "category": "Cloud Computing",
+      "theme": "Cloud",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "O365-USR",
+    "themeId": "Cloud",
+    "categoryId": "Cloud Computing",
+    "rating": 4.9,
+    "students": 653,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3500,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Office 365 - Utilisateur",
+      "category": "Cloud Computing",
+      "theme": "Cloud",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Office 365 - Utilisateur",
+      "category": "Cloud Computing",
+      "theme": "Cloud",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "SHL-ADV",
+    "themeId": "Système",
+    "categoryId": "Développement Unix Linux",
+    "rating": 4.8,
+    "students": 681,
+    "duration": "2J",
+    "durationDays": 2,
+    "price": 2990,
+    "badge": "new",
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "advanced",
+    "format": "en-ligne",
+    "fr": {
+      "title": "Écriture de scripts Shell avancés",
+      "category": "Développement Unix Linux",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Écriture de scripts Shell avancés",
+      "category": "Développement Unix Linux",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "PERL-SCR",
+    "themeId": "Système",
+    "categoryId": "Développement Unix Linux",
+    "rating": 4.5,
+    "students": 660,
+    "duration": "5J",
+    "durationDays": 5,
+    "price": 5900,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Écriture de scripts avec le langage PERL",
+      "category": "Développement Unix Linux",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Écriture de scripts avec le langage PERL",
+      "category": "Développement Unix Linux",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "PYT-DEV",
+    "themeId": "Système",
+    "categoryId": "Développement Unix Linux",
+    "rating": 4.5,
+    "students": 660,
+    "duration": "5J",
+    "durationDays": 5,
+    "price": 5200,
+    "featured": true,
+    "badge": "bestseller",
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Développer avec Python",
+      "category": "Développement Unix Linux",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Développer avec Python",
+      "category": "Développement Unix Linux",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "UNX-SCR",
+    "themeId": "Système",
+    "categoryId": "Développement Unix Linux",
+    "rating": 4.5,
+    "students": 695,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 4200,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "hybride",
+    "fr": {
+      "title": "Scripting sous Unix/Linux",
+      "category": "Développement Unix Linux",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Scripting sous Unix/Linux",
+      "category": "Développement Unix Linux",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "DRV-LNX",
+    "themeId": "Système",
+    "categoryId": "Développement Unix Linux",
+    "rating": 4.8,
+    "students": 576,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 4200,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Écriture de drivers et programmation noyau Linux",
+      "category": "Développement Unix Linux",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Écriture de drivers et programmation noyau Linux",
+      "category": "Développement Unix Linux",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "LNX-RT",
+    "themeId": "Système",
+    "categoryId": "Développement Unix Linux",
+    "rating": 4.6,
+    "students": 632,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 4200,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Mettre en oeuvre des systèmes temps réel avec Linux",
+      "category": "Développement Unix Linux",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Mettre en oeuvre des systèmes temps réel avec Linux",
+      "category": "Développement Unix Linux",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "LNX-EMB",
+    "themeId": "Système",
+    "categoryId": "Développement Unix Linux",
+    "rating": 4.6,
+    "students": 632,
+    "duration": "2J",
+    "durationDays": 2,
+    "price": 3100,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Concevoir un système Linux embarqué",
+      "category": "Développement Unix Linux",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Concevoir un système Linux embarqué",
+      "category": "Développement Unix Linux",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "VIRT-SEM",
+    "themeId": "Système",
+    "categoryId": "Virtualisation",
+    "rating": 4.6,
+    "students": 702,
+    "duration": "2J",
+    "durationDays": 2,
+    "price": 3100,
+    "badge": "new",
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "en-ligne",
+    "fr": {
+      "title": "Etat de l'art de la virtualisation",
+      "category": "Virtualisation",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Etat de l'art de la virtualisation",
+      "category": "Virtualisation",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "VIRT-PRJ",
+    "themeId": "Système",
+    "categoryId": "Virtualisation",
+    "rating": 4.6,
+    "students": 702,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 4500,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "hybride",
+    "fr": {
+      "title": "Approche et réussite d'un projet de virtualisation",
+      "category": "Virtualisation",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Approche et réussite d'un projet de virtualisation",
+      "category": "Virtualisation",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "WIN-SUP",
+    "themeId": "Système",
+    "categoryId": "Windows et System Center",
+    "rating": 4.7,
+    "students": 709,
+    "duration": "2J",
+    "durationDays": 2,
+    "price": 3200,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Certified Cursus Spécialiste du support technique",
+      "category": "Windows et System Center",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Certified Cursus Spécialiste du support technique",
+      "category": "Windows et System Center",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "WIN-OCS",
+    "themeId": "Système",
+    "categoryId": "Windows et System Center",
+    "rating": 4.7,
+    "students": 709,
+    "duration": "5J",
+    "durationDays": 5,
+    "price": 5500,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Gestion de Parc avec OCS et GLP",
+      "category": "Windows et System Center",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Gestion de Parc avec OCS et GLP",
+      "category": "Windows et System Center",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "WIN-LOG",
+    "themeId": "Système",
+    "categoryId": "Windows et System Center",
+    "rating": 4.7,
+    "students": 709,
+    "duration": "5J",
+    "durationDays": 5,
+    "price": 5900,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Assurer le support PC logiciel",
+      "category": "Windows et System Center",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Assurer le support PC logiciel",
+      "category": "Windows et System Center",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "WIN-CST",
+    "themeId": "Système",
+    "categoryId": "Windows et System Center",
+    "rating": 4.7,
+    "students": 709,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3500,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Cursus Spécialiste du support technique",
+      "category": "Windows et System Center",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Cursus Spécialiste du support technique",
+      "category": "Windows et System Center",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "WIN-MAT",
+    "themeId": "Système",
+    "categoryId": "Windows et System Center",
+    "rating": 4.7,
+    "students": 709,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3800,
+    "badge": "bestseller",
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "hybride",
+    "fr": {
+      "title": "Assurer le support PC matériel",
+      "category": "Windows et System Center",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Assurer le support PC matériel",
+      "category": "Windows et System Center",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "WIN-HTL",
+    "themeId": "Système",
+    "categoryId": "Windows et System Center",
+    "rating": 4.7,
+    "students": 709,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3990,
+    "badge": "new",
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "en-ligne",
+    "fr": {
+      "title": "Hotliners : réussir ses prises d'appels",
+      "category": "Windows et System Center",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Hotliners : réussir ses prises d'appels",
+      "category": "Windows et System Center",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "MAC-ADM",
+    "themeId": "Système",
+    "categoryId": "MacOs",
+    "rating": 4.7,
+    "students": 639,
+    "duration": "2J",
+    "durationDays": 2,
+    "price": 3100,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Cursus Administrateur macOS Sierra",
+      "category": "MacOs",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Cursus Administrateur macOS Sierra",
+      "category": "MacOs",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "MAC-SRV",
+    "themeId": "Système",
+    "categoryId": "MacOs",
+    "rating": 4.7,
+    "students": 639,
+    "duration": "5J",
+    "durationDays": 5,
+    "price": 4990,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Administration de macOS Sierra",
+      "category": "MacOs",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Administration de macOS Sierra",
+      "category": "MacOs",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "MAC-USR",
+    "themeId": "Système",
+    "categoryId": "MacOs",
+    "rating": 4.7,
+    "students": 639,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3800,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "beginner",
+    "format": "presentiel",
+    "fr": {
+      "title": "Prise en main de macOS Sierra",
+      "category": "MacOs",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Prise en main de macOS Sierra",
+      "category": "MacOs",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "MAC-SRV2",
+    "themeId": "Système",
+    "categoryId": "MacOs",
+    "rating": 4.7,
+    "students": 639,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3990,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "hybride",
+    "fr": {
+      "title": "Administration de serveurs macOS Sierra",
+      "category": "MacOs",
+      "theme": "Système",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Administration de serveurs macOS Sierra",
+      "category": "MacOs",
+      "theme": "Système",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "NET-ADM",
+    "themeId": "Réseaux",
+    "categoryId": "Formation Mise en Oeuvre",
+    "rating": 4.8,
+    "students": 646,
+    "duration": "2J",
+    "durationDays": 2,
+    "price": 3200,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Cursus Administrateur réseaux",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Cursus Administrateur réseaux",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "NET-RSP",
+    "themeId": "Réseaux",
+    "categoryId": "Formation Mise en Oeuvre",
+    "rating": 4.8,
+    "students": 646,
+    "duration": "5J",
+    "durationDays": 5,
+    "price": 5200,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Cursus Responsable réseaux",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Cursus Responsable réseaux",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "NET-PRK",
+    "themeId": "Réseaux",
+    "categoryId": "Formation Mise en Oeuvre",
+    "rating": 4.8,
+    "students": 646,
+    "duration": "5J",
+    "durationDays": 5,
+    "price": 4800,
+    "badge": "new",
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "en-ligne",
+    "fr": {
+      "title": "Pratique des réseaux",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Pratique des réseaux",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "NET-SEC",
+    "themeId": "Réseaux",
+    "categoryId": "Formation Mise en Oeuvre",
+    "rating": 4.8,
+    "students": 646,
+    "duration": "2J",
+    "durationDays": 2,
+    "price": 2990,
+    "featured": true,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Sécurité systèmes et réseaux - Mise en oeuvre",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Sécurité systèmes et réseaux - Mise en oeuvre",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "IPV6-MO",
+    "themeId": "Réseaux",
+    "categoryId": "Formation Mise en Oeuvre",
+    "rating": 4.8,
+    "students": 611,
+    "duration": "5J",
+    "durationDays": 5,
+    "price": 5900,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "hybride",
+    "fr": {
+      "title": "Mettre en oeuvre IPv6",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Mettre en oeuvre IPv6",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "WIFI-MOB",
+    "themeId": "Réseaux",
+    "categoryId": "Formation Mise en Oeuvre",
+    "rating": 4.7,
+    "students": 709,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3990,
+    "badge": "bestseller",
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "La technologie sans-fil WiFi et mobilité",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "La technologie sans-fil WiFi et mobilité",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "NET-INT",
+    "themeId": "Réseaux",
+    "categoryId": "Formation Mise en Oeuvre",
+    "rating": 4.8,
+    "students": 646,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 4500,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "beginner",
+    "format": "presentiel",
+    "fr": {
+      "title": "Introduction technique aux réseaux",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Introduction technique aux réseaux",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "NET-AUD",
+    "themeId": "Réseaux",
+    "categoryId": "Formation Mise en Oeuvre",
+    "rating": 4.8,
+    "students": 646,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3800,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Auditez et optimisez votre réseau",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Auditez et optimisez votre réseau",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "TCP-IP",
+    "themeId": "Réseaux",
+    "categoryId": "Formation Mise en Oeuvre",
+    "rating": 4.9,
+    "students": 688,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3800,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Soyez autonome avec TCP/IP",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Soyez autonome avec TCP/IP",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "NET-OUT",
+    "themeId": "Réseaux",
+    "categoryId": "Formation Mise en Oeuvre",
+    "rating": 4.8,
+    "students": 646,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 3800,
+    "badge": "new",
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "en-ligne",
+    "fr": {
+      "title": "Solutions et outils d'administration réseaux",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Solutions et outils d'administration réseaux",
+      "category": "Formation Mise en Oeuvre",
+      "theme": "Réseaux",
+      "instructor": "ZiryabTec Expert"
+    }
+  },
+  {
+    "id": "IA-PYT",
+    "themeId": "IA",
+    "categoryId": "Intelligence Artificielle",
+    "rating": 4.8,
+    "students": 611,
+    "duration": "Sur mesure",
+    "durationDays": 2,
+    "price": 4500,
+    "color": "from-blue-600/20 to-cyan-600/20",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=600&h=400",
+    "level": "all",
+    "format": "presentiel",
+    "fr": {
+      "title": "Python Pour Data Science",
+      "category": "Intelligence Artificielle",
+      "theme": "IA",
+      "instructor": "Expert ZiryabTec"
+    },
+    "en": {
+      "title": "Python Pour Data Science",
+      "category": "Intelligence Artificielle",
+      "theme": "IA",
+      "instructor": "ZiryabTec Expert"
     }
   }
 ];
