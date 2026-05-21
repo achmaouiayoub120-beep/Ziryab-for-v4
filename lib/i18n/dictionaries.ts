@@ -625,7 +625,7 @@ export const translatedCourses: TranslatedCourse[] = [
     "durationDays": 2,
     "price": 3990,
     "color": "from-blue-600/20 to-cyan-600/20",
-    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f2?auto=format&fit=crop&q=80&w=600&h=400",
+    "image": "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&q=80&w=600&h=400",
     "level": "all",
     "format": "presentiel",
     "fr": {
@@ -835,7 +835,7 @@ export const translatedCourses: TranslatedCourse[] = [
     "price": 4200,
     "badge": "bestseller",
     "color": "from-blue-600/20 to-cyan-600/20",
-    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f2?auto=format&fit=crop&q=80&w=600&h=400",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600&h=400",
     "level": "all",
     "format": "presentiel",
     "fr": {
@@ -1045,7 +1045,7 @@ export const translatedCourses: TranslatedCourse[] = [
     "durationDays": 2,
     "price": 3500,
     "color": "from-blue-600/20 to-cyan-600/20",
-    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f2?auto=format&fit=crop&q=80&w=600&h=400",
+    "image": "https://images.unsplash.com/photo-1562813733-b31f71025d54?auto=format&fit=crop&q=80&w=600&h=400",
     "level": "all",
     "format": "presentiel",
     "fr": {
@@ -1255,7 +1255,7 @@ export const translatedCourses: TranslatedCourse[] = [
     "durationDays": 2,
     "price": 4200,
     "color": "from-blue-600/20 to-cyan-600/20",
-    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f2?auto=format&fit=crop&q=80&w=600&h=400",
+    "image": "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&q=80&w=600&h=400",
     "level": "all",
     "format": "presentiel",
     "fr": {
@@ -1466,7 +1466,7 @@ export const translatedCourses: TranslatedCourse[] = [
     "price": 4200,
     "badge": "new",
     "color": "from-blue-600/20 to-cyan-600/20",
-    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f2?auto=format&fit=crop&q=80&w=600&h=400",
+    "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600&h=400",
     "level": "all",
     "format": "en-ligne",
     "fr": {
