@@ -95,10 +95,10 @@ export default function DevenirFormateurPage() {
 
         <SectionWrapper id="devenir-formateur" className="relative z-10 pt-10">
           <FadeInChild>
-            <div className="grid lg:grid-cols-12 gap-12 items-start flex-col-reverse">
+            <div className="grid lg:grid-cols-12 gap-12 items-start">
               
-              {/* Colonne Texte (En haut sur mobile, à droite sur desktop) */}
-              <div className="order-1 lg:order-2 lg:col-span-5 lg:sticky lg:top-32 space-y-10">
+              {/* Colonne Texte (Gauche sur desktop, Haut sur mobile) */}
+              <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-10">
                 <div>
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--accent-light)] text-[var(--accent)] text-sm font-bold mb-6">
                     <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
@@ -130,8 +130,8 @@ export default function DevenirFormateurPage() {
                 </div>
               </div>
 
-              {/* Colonne Formulaire (En bas sur mobile, à gauche sur desktop) */}
-              <div className="order-2 lg:order-1 lg:col-span-7">
+              {/* Colonne Formulaire (Droite sur desktop, Bas sur mobile) */}
+              <div className="lg:col-span-7">
                 <div className="elite-card bg-white p-8 md:p-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border-t-4 border-t-[var(--accent)] relative overflow-hidden">
                   
                   {/* Subtle pattern overlay inside card */}
