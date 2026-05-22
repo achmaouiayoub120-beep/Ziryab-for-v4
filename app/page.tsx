@@ -7,6 +7,7 @@ import BentoFeatures from "@/components/landing/BentoFeatures";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
 import PortfolioSection from "@/components/landing/PortfolioSection";
 import LogoMarquee from "@/components/landing/LogoMarquee";
+import InstructorBanner from "@/components/landing/InstructorBanner";
 
 /* ── Sections masquées sur directive du professeur ──
 import CoursesPreview from "@/components/landing/CoursesPreview";
@@ -26,6 +27,8 @@ export default function Home() {
         <BentoFeatures />
         <PortfolioSection />
         <TestimonialsSection />
+        <InstructorBanner />
+
         {/* ── Section Tarifs masquée (directive professeur) ──
         <PricingPreview />
         ── */}

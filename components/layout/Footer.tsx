@@ -28,6 +28,7 @@ export default function Footer() {
       { label: language === 'fr' ? "Documentation" : "Documentation", href: "/blog" },
       { label: "FAQ", href: "/faqs" },
       { label: language === 'fr' ? "Communauté" : "Community", href: "/blog" },
+      { label: language === 'fr' ? "Devenir Formateur" : "Become an Instructor", href: "/devenir-formateur" },
       { label: language === 'fr' ? "Vérifier un certificat" : "Verify a certificate", href: "/formations" },
     ],
     legal: [

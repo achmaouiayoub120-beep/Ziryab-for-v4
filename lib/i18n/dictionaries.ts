@@ -337,6 +337,39 @@ export const dictionaries = {
       priceFrom: "À partir de",
       perGroup: "/ groupe",
       instructor: "Formateur"
+    },
+    homeBanner: {
+      title: "Vous êtes un expert dans votre domaine ?",
+      subtitle: "Rejoignez notre réseau de formateurs d'élite et partagez votre savoir avec la prochaine génération de talents de la tech.",
+      button: "Postuler en tant que Formateur"
+    },
+    devenirFormateur: {
+      badge: "Rejoignez notre réseau d'experts",
+      titleStart: "Devenez ",
+      titleHighlight: "Formateur",
+      subtitle: "Partagez votre expertise avec la prochaine génération de talents de la tech. Nous sommes toujours à la recherche de professionnels passionnés pour enrichir nos programmes d'excellence.",
+      successTitle: "Candidature envoyée avec succès !",
+      successDesc: "Merci pour votre intérêt. Notre équipe pédagogique étudiera votre profil avec attention et vous recontactera très prochainement.",
+      section1: "Informations Personnelles",
+      nameLabel: "Nom et Prénom",
+      namePlaceholder: "John Doe",
+      emailLabel: "Adresse Email",
+      emailPlaceholder: "john@example.com",
+      phoneLabel: "Téléphone",
+      phonePlaceholder: "+212 6 XX XX XX XX",
+      section2: "Profil Professionnel",
+      domainLabel: "Domaine d'expertise",
+      domainPlaceholder: "Sélectionnez votre domaine principal",
+      linkedinLabel: "Lien du profil LinkedIn",
+      linkedinPlaceholder: "https://linkedin.com/in/votrenom",
+      section3: "Pièces jointes & Message",
+      cvLabel: "CV / Dossier de candidature (PDF)",
+      cvDragDrop: "Cliquez ou glissez pour modifier",
+      cvClickAdd: "Cliquez pour importer votre CV",
+      cvFormat: "Format PDF uniquement (Max 5MB)",
+      messageLabel: "Message / Motivations",
+      messagePlaceholder: "Parlez-nous de vos expériences de formation ou de vos motivations...",
+      submitButton: "Soumettre ma candidature"
     }
   },
   en: {
@@ -525,6 +558,39 @@ export const dictionaries = {
       priceFrom: "From",
       perGroup: "/ group",
       instructor: "Instructor"
+    },
+    homeBanner: {
+      title: "Are you an expert in your field?",
+      subtitle: "Join our network of elite instructors and share your knowledge with the next generation of tech talent.",
+      button: "Apply as an Instructor"
+    },
+    devenirFormateur: {
+      badge: "Join our network of experts",
+      titleStart: "Become an ",
+      titleHighlight: "Instructor",
+      subtitle: "Share your expertise with the next generation of tech talent. We are always looking for passionate professionals to enrich our excellence programs.",
+      successTitle: "Application sent successfully!",
+      successDesc: "Thank you for your interest. Our educational team will carefully review your profile and contact you very soon.",
+      section1: "Personal Information",
+      nameLabel: "Full Name",
+      namePlaceholder: "John Doe",
+      emailLabel: "Email Address",
+      emailPlaceholder: "john@example.com",
+      phoneLabel: "Phone Number",
+      phonePlaceholder: "+212 6 XX XX XX XX",
+      section2: "Professional Profile",
+      domainLabel: "Area of Expertise",
+      domainPlaceholder: "Select your main area of expertise",
+      linkedinLabel: "LinkedIn Profile URL",
+      linkedinPlaceholder: "https://linkedin.com/in/yourname",
+      section3: "Attachments & Message",
+      cvLabel: "Resume / Application File (PDF)",
+      cvDragDrop: "Click or drag to modify",
+      cvClickAdd: "Click to upload your resume",
+      cvFormat: "PDF format only (Max 5MB)",
+      messageLabel: "Message / Motivations",
+      messagePlaceholder: "Tell us about your training experience or your motivations...",
+      submitButton: "Submit my application"
     }
   }
 };
