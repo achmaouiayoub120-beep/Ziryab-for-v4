@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Twitter, Youtube, Mail, MapPin, Phone } from "lucide-react";
+import { Github, Linkedin, Twitter, Youtube, Mail, MapPin, Phone, GraduationCap } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { dictionaries } from "@/lib/i18n/dictionaries";
 
@@ -18,7 +18,6 @@ export default function Footer() {
   const footerLinks = {
     plateforme: [
       { label: t.links.platform.items[0], href: "/courses" },
-      { label: t.links.platform.items[1], href: "/portfolio" },
       { label: t.links.platform.items[2], href: "/formations" },
       { label: t.links.platform.items[3], href: "/courses" },
       { label: language === 'fr' ? "Entreprises" : "Business", href: "/about" },
@@ -45,8 +44,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <img src="/logo.png" alt="ZiryabTec" className="h-16 w-auto" />
+            <div className="flex flex-col items-start gap-0 mb-4">
+              <div className="relative">
+                <GraduationCap 
+                  size={16} 
+                  className="absolute -top-1 left-[4px] text-[#2CA5D1] rotate-[-15deg]" 
+                  strokeWidth={2.5}
+                />
+                <img src="/logo.png" alt="ZiryabTec" className="h-14 w-auto" />
+              </div>
+              <span className="text-[8px] font-semibold uppercase tracking-[0.25em] text-[#1A3B5C] -mt-0.5 ml-[2px] opacity-70">
+                {language === 'fr' ? 'Centre de Formation' : 'Training Center'}
+              </span>
             </div>
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-4 max-w-sm">
               {t.description}

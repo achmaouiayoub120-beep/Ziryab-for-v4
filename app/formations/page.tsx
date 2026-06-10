@@ -4,7 +4,7 @@ import { useState } from "react";
 import SectionWrapper, { FadeInChild } from "@/components/ui/SectionWrapper";
 import { formationsData } from "@/lib/data/formations";
 import { motion, useReducedMotion } from "framer-motion";
-import { Clock, ArrowLeft, Shield, Cloud, Terminal, Wifi, Brain, Lock, Monitor, Network, Bot } from "lucide-react";
+import { Clock, ArrowRight, Shield, Cloud, Terminal, Wifi, Brain, Lock, Monitor, Network, Bot, Download } from "lucide-react";
 import Link from "next/link";
 
 /* ══════════════════════════════════════════════════════════
@@ -71,7 +71,7 @@ function CardVisual({ theme, index }: { theme: string; index: number }) {
   const IconComp = useAlt ? cfg.iconAlt : cfg.icon;
 
   return (
-    <div className={`relative h-40 overflow-hidden bg-gradient-to-br ${cfg.gradient}`}>
+    <div className={`relative h-48 overflow-hidden bg-gradient-to-br ${cfg.gradient}`}>
       {/* Subtle pattern overlay */}
       <div className={`absolute inset-0 ${cfg.bgPattern}`} />
       {/* Grid dots decoration */}
@@ -80,17 +80,14 @@ function CardVisual({ theme, index }: { theme: string; index: number }) {
         backgroundSize: "20px 20px",
       }} />
       {/* Large faded icon in background */}
-      <div className="absolute -right-6 -bottom-6 opacity-[0.08]">
-        <IconComp size={140} strokeWidth={0.8} />
+      <div className="absolute -right-8 -bottom-8 opacity-[0.15] transform rotate-[-15deg]">
+        <IconComp size={180} strokeWidth={0.5} />
       </div>
       {/* Centered icon */}
-      <div className="relative flex flex-col items-center justify-center h-full gap-2 z-10">
-        <div className={`p-3 rounded-2xl bg-white/10 backdrop-blur-sm ring-1 ${cfg.accentRing}`}>
-          <IconComp size={32} className={cfg.iconColor} strokeWidth={1.8} />
+      <div className="relative flex flex-col items-center justify-center h-full gap-3 z-10">
+        <div className={`p-4 rounded-3xl bg-white/10 backdrop-blur-md ring-1 ${cfg.accentRing} shadow-2xl`}>
+          <IconComp size={40} className={cfg.iconColor} strokeWidth={1.5} />
         </div>
-        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">
-          {theme}
-        </span>
       </div>
     </div>
   );
@@ -120,27 +117,39 @@ export default function FormationsPage() {
   const themeCounters: Record<string, number> = {};
 
   return (
-    <main className="min-h-screen pt-24 pb-20 bg-[var(--bg-alt)]">
+    <main className="min-h-screen pt-24 pb-24 bg-[var(--bg)]">
       <SectionWrapper>
-        <FadeInChild className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-[var(--text-primary)] mb-6">
-            Catalogue de <span className="text-[var(--accent)]">Formations</span>
+        <FadeInChild className="text-center mb-20">
+          <h1 className="text-5xl md:text-6xl font-display font-bold text-[var(--text-primary)] mb-6 tracking-tight">
+            Les <span className="text-[var(--accent)]">Brochures</span> de Formation
           </h1>
-          <p className="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
-            Découvrez notre offre complète de formations spécialisées en IT, Cybersécurité, Cloud, Système et Réseaux.
+          <p className="text-xl text-[var(--text-secondary)] max-w-3xl mx-auto leading-relaxed">
+            Parcourez notre catalogue premium et découvrez le détail de chaque cursus professionnel pour accélérer votre carrière IT.
           </p>
         </FadeInChild>
 
+        {/* Bannière de téléchargement catalogue */}
+        <FadeInChild className="max-w-4xl mx-auto mb-16 bg-[var(--accent-light)] border border-[var(--accent)]/20 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+          <div>
+            <h3 className="text-xl font-bold text-[var(--text-primary)] mb-2">Catalogue complet 2024/2025</h3>
+            <p className="text-[var(--text-secondary)]">Découvrez l'intégralité de nos programmes d'excellence en format PDF pour une consultation hors ligne.</p>
+          </div>
+          <a href="/catalogue-dummy.pdf" target="_blank" rel="noopener noreferrer" className="shrink-0 flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white px-6 py-3 rounded-xl font-bold transition-all transform hover:scale-105 shadow-md">
+            <Download size={18} />
+            Télécharger le catalogue (PDF)
+          </a>
+        </FadeInChild>
+
         {/* Filtres */}
-        <FadeInChild className="flex flex-wrap justify-center gap-3 mb-12">
+        <FadeInChild className="flex flex-wrap justify-center gap-4 mb-16">
           {themes.map((theme) => (
             <button
               key={theme}
               onClick={() => setActiveTheme(theme)}
-              className={`px-6 py-2 rounded-full text-sm font-bold transition-all ${
+              className={`px-8 py-3 rounded-full text-sm font-bold tracking-wide transition-all ${
                 activeTheme === theme
-                  ? "bg-[var(--accent)] text-white shadow-md"
-                  : "bg-white text-[var(--text-secondary)] border border-[var(--border)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                  ? "bg-[var(--text-primary)] text-white shadow-xl scale-105"
+                  : "bg-white text-[var(--text-secondary)] border border-[var(--border)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)] hover:shadow-md"
               }`}
             >
               {theme}
@@ -148,12 +157,12 @@ export default function FormationsPage() {
           ))}
         </FadeInChild>
 
-        {/* Grille */}
+        {/* Grille : 1 mobile, 2 tablet, 3 desktop (comme demandé) */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
           initial={shouldReduceMotion ? {} : "initial"}
           animate={shouldReduceMotion ? {} : "animate"}
-          variants={{ animate: { transition: { staggerChildren: 0.05 } } }}
+          variants={{ animate: { transition: { staggerChildren: 0.08 } } }}
         >
           {filteredFormations.map((formation, idx) => {
             if (!themeCounters[formation.theme]) themeCounters[formation.theme] = 0;
@@ -164,41 +173,60 @@ export default function FormationsPage() {
               <motion.div
                 key={`${formation.reference}-${idx}`}
                 variants={{
-                  initial: { opacity: 0, y: 20 },
-                  animate: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+                  initial: { opacity: 0, y: 30 },
+                  animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
                 }}
               >
-                <Link href={`/courses/${formation.reference}`} className="block h-full">
-                  <div className="elite-card group overflow-hidden bg-white flex flex-col h-full">
-                    {/* Visual thématique */}
-                    <CardVisual theme={formation.theme} index={imgIdx} />
+                <div className="elite-card group overflow-hidden bg-white flex flex-col h-full rounded-[20px]">
+                  {/* Visual thématique type Couverture de Brochure */}
+                  <CardVisual theme={formation.theme} index={imgIdx} />
+                  
+                  {/* Contenu de la carte très aéré */}
+                  <div className="p-8 flex flex-col flex-1 relative">
                     
-                    {/* Badge ref par-dessus */}
-                    <div className="relative">
-                      <span className="absolute -top-5 left-4 px-2.5 py-1 rounded-md bg-white shadow-sm text-[10px] font-bold uppercase tracking-wider text-[var(--accent)] z-10 border border-[var(--border)]">
-                        {formation.reference}
+                    {/* Floating Reference Badge */}
+                    <div className="absolute -top-5 right-8 px-4 py-1.5 rounded-full bg-white shadow-md text-xs font-bold uppercase tracking-widest text-[var(--text-primary)] border border-[var(--border)]">
+                      {formation.reference}
+                    </div>
+
+                    {/* Pill Category */}
+                    <div className="mb-5 inline-flex">
+                      <span className="px-3 py-1 bg-[var(--bg-alt)] text-[var(--text-secondary)] rounded-full text-[11px] font-bold uppercase tracking-wider">
+                        {formation.categorie}
                       </span>
                     </div>
 
-                    <div className="p-5 pt-4 flex flex-col flex-1">
-                      <span className="text-[10px] text-[var(--text-muted)] font-bold uppercase tracking-wider mb-2 mt-2">
-                        {formation.categorie}
-                      </span>
-                      <h3 className="text-base font-display font-bold text-[var(--text-primary)] mb-4 flex-grow group-hover:text-[var(--accent)] transition-colors line-clamp-2">
-                        {formation.titre}
-                      </h3>
-                      <div className="mt-auto pt-4 border-t border-[var(--border)] flex justify-between items-center">
-                        <div className="flex items-center gap-1.5 text-sm text-[var(--text-secondary)]">
-                          <Clock size={14} />
-                          <span className="font-medium">{formation.duree}</span>
-                        </div>
-                        <span className="font-mono font-bold text-[var(--accent)]">
-                          {price} MAD
-                        </span>
+                    {/* Titre */}
+                    <h3 className="text-xl font-display font-bold text-[var(--text-primary)] mb-4 leading-tight group-hover:text-[var(--accent)] transition-colors">
+                      {formation.titre}
+                    </h3>
+
+                    {/* Description courte */}
+                    <p className="text-sm text-[var(--text-secondary)] mb-8 line-clamp-3 leading-relaxed flex-grow">
+                      Maîtrisez les concepts essentiels et avancés de la thématique "{formation.theme}" grâce à ce programme intensif dispensé par nos experts. Idéal pour monter en compétences rapidement.
+                    </p>
+
+                    {/* Info ligne (Durée & Prix) */}
+                    <div className="flex justify-between items-center mb-8 pb-6 border-b border-[var(--border)]">
+                      <div className="flex items-center gap-2 text-sm text-[var(--text-secondary)] font-medium">
+                        <Clock size={16} className="text-[var(--text-muted)]" />
+                        <span>{formation.duree}</span>
+                      </div>
+                      <div className="text-sm font-mono font-bold text-[var(--text-primary)]">
+                        {price} MAD
                       </div>
                     </div>
+
+                    {/* Bouton CTA - Découvrir la brochure */}
+                    <Link href={`/formations/${formation.reference}`} className="block w-full">
+                      <div className="w-full py-4 rounded-xl flex justify-between items-center px-6 bg-[var(--bg-alt)] group-hover:bg-[var(--accent)] text-[var(--text-primary)] group-hover:text-white transition-all duration-300 font-bold tracking-wide">
+                        <span>Voir la brochure</span>
+                        <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </Link>
+
                   </div>
-                </Link>
+                </div>
               </motion.div>
             );
           })}

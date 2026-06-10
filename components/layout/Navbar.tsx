@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Menu, X, Phone, Mail, MapPin, Instagram, Youtube, Linkedin } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, Instagram, Youtube, Linkedin, GraduationCap } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
@@ -60,7 +60,6 @@ const translations = {
   fr: {
     home: "Accueil",
     courses: "Formations",
-    portfolio: "Portfolio",
     partners: "Partenaires",
     faqs: "FAQ",
     about: "À propos",
@@ -70,7 +69,6 @@ const translations = {
   en: {
     home: "Home",
     courses: "Courses",
-    portfolio: "Portfolio",
     partners: "Partners",
     faqs: "FAQs",
     about: "About Us",
@@ -82,7 +80,6 @@ const translations = {
 const navLinks = [
   { key: "home", href: "/" },
   { key: "courses", href: "/courses" },
-  { key: "portfolio", href: "/portfolio" },
   { key: "partners", href: "/partners" },
   { key: "faqs", href: "/faqs" },
   { key: "about", href: "/about" },
@@ -139,9 +136,21 @@ export default function Navbar() {
         )}
       >
         <nav suppressHydrationWarning className="max-w-[1400px] mx-auto px-6 md:px-12 h-24 flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo — Centre de Formation */}
           <a href="/" className="flex items-center gap-3 group" aria-label="ZiryabTec Home">
-            <img src="/logo.png" alt="ZiryabTec" className="h-20 w-auto" />
+            <div className="flex flex-col items-start">
+              <div className="relative">
+                <GraduationCap 
+                  size={18} 
+                  className="absolute -top-1.5 left-[5px] text-[#2CA5D1] rotate-[-15deg] transition-transform duration-300 group-hover:rotate-[-20deg]" 
+                  strokeWidth={2.5}
+                />
+                <img src="/logo.png" alt="ZiryabTec" className="h-16 w-auto" />
+              </div>
+              <span className="text-[9px] font-semibold uppercase tracking-[0.25em] text-[#1A3B5C] -mt-1 ml-[2px] opacity-70">
+                {language === 'fr' ? 'Centre de Formation' : 'Training Center'}
+              </span>
+            </div>
           </a>
 
           {/* Desktop Nav */}

@@ -5,7 +5,9 @@ import StatsSection from "@/components/landing/StatsSection";
 import FeaturedCourses from "@/components/landing/FeaturedCourses";
 import BentoFeatures from "@/components/landing/BentoFeatures";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
+/* ── Portfolio supprimé — site dédié Centre de Formation ──
 import PortfolioSection from "@/components/landing/PortfolioSection";
+── */
 import LogoMarquee from "@/components/landing/LogoMarquee";
 import InstructorBanner from "@/components/landing/InstructorBanner";
 
@@ -25,7 +27,7 @@ export default function Home() {
         <StatsSection />
         <FeaturedCourses />
         <BentoFeatures />
-        <PortfolioSection />
+        {/* ── PortfolioSection supprimée — Centre de Formation uniquement ── */}
         <TestimonialsSection />
         <InstructorBanner />
 
